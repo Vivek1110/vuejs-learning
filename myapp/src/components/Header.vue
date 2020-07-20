@@ -1,0 +1,9 @@
+<template>
+    <v-app-bar
+      app
+      color="zeal"
+      dark
+    >
+    <h2>Headline</h2>
+    </v-app-bar>
+</template>
