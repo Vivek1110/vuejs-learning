@@ -1,27 +1,22 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="zeal"
-      dark
-    >
-    <h2>Headline</h2>
-    </v-app-bar>
-
+    <Header />
     <v-main>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import Header from './components/Header'
+import HeadLine from './components/HeadLine';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    HeadLine,
+    Header
   },
 
   data: () => ({
