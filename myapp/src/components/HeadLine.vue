@@ -2,7 +2,17 @@
   <v-container>
  
     <v-row>
-       <v-col cols='12'>
+       <v-col cols='8'>
+          <v-text-field
+            label="Title"
+            class="mx-4"
+            v-model='searchTxt'
+            :change="fetchSearchTxt"
+            outlined
+          ></v-text-field>
+         
+       </v-col>
+       <v-col class="cols-4">
          <FilterDialog />
        </v-col>
        
@@ -33,14 +43,14 @@
 <script>
 import CustomCard from './card/CustomCard'
 import FilterDialog from './card/FilterDialog'
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
   export default {
     created: function() {
       console.log("this is created");
     }, 
     data() {
       return {
-        loading: false
+        searchTxt: ''
       }
     },
     components: {
@@ -49,8 +59,18 @@ import { mapGetters } from 'vuex';
     },
     computed: {
         ...mapGetters({
-            articles: 'articles'
-        })
+            articles: 'articles',
+            loading: 'loading'
+        }),
+        fetchSearchTxt() {
+          console.log('val', this.searchTxt)
+          this.fetchSearchResults(this.searchTxt);
+        }
     },
+    methods: {
+      ...mapActions({
+        fetchSearchResults: 'loadData'
+      })
+    }
   }
 </script>

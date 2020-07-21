@@ -23,7 +23,7 @@ export default {
     })
   },
   created: function() {
-    this.fetchData();
+    this.fetchData('');
   },
 
   data: () => ({

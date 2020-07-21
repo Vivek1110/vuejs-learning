@@ -1,12 +1,17 @@
 import {data} from '../data';
 
 const state = {
-    articles: data
+    articles: data,
+    loading: false,
+    sources: []
 };
 
 const getters = {
     'articles': state => {
         return state.articles
+    },
+    'loading': state => {
+        return state.loading
     }
 };
 
@@ -16,6 +21,12 @@ const mutations = {
     },
     'SET_ARTICLE': (state, payload) => {
         state.articles = payload
+    },
+    'SET_LOADING': (state, payload) => {
+        state.loading = payload
+    },
+    'SET_SOURCE': (state, payload) => {
+        state.sources = payload
     }
 };
 
