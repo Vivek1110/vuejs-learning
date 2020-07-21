@@ -13,6 +13,9 @@ const getters = {
 const mutations = {
     'updateTitle': (state, payload) => {
         state.articles[payload.index]['title'] = payload.title
+    },
+    'SET_ARTICLE': (state, payload) => {
+        state.articles = payload
     }
 };
 

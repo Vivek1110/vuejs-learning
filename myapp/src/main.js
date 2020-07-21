@@ -6,10 +6,15 @@ import '@mdi/font/css/materialdesignicons.css'
 import { store  } from './store/store'
 import VueRouter from 'vue-router';
 import { routes } from './route'
+import vReadMoreBox from "v-read-more-box";
+import VueResource from 'vue-resource';
 
 Vue.config.productionTip = false
 Vue.use(VueRouter);
+Vue.use(VueResource);
 
+
+Vue.component("v-read-more-box", vReadMoreBox);
 const router = new VueRouter({
   routes,
   mode: 'history'

@@ -9,14 +9,21 @@
 
 <script>
 import Header from './components/Header'
-import HeadLine from './components/HeadLine';
+import {mapActions} from 'vuex';
 
 export default {
   name: 'App',
 
   components: {
-    HeadLine,
     Header
+  },
+  methods: {
+    ...mapActions({
+      fetchData: 'loadData'
+    })
+  },
+  created: function() {
+    this.fetchData();
   },
 
   data: () => ({

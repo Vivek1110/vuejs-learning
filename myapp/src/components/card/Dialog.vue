@@ -5,7 +5,7 @@
          <v-btn  v-bind="attrs"
                 v-on="on" 
                 icon>
-            <v-icon>{{ icons.mdiPencil }}</v-icon>
+            <v-icon>{{ icons.mdiPencilCircle }}</v-icon>
         </v-btn>
       </template>
       <v-card>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mdiPencil } from '@mdi/js'
+import { mdiPencilCircle } from '@mdi/js'
 import {mapActions} from 'vuex';
   export default {
     props: ['index'],
@@ -37,7 +37,7 @@ import {mapActions} from 'vuex';
       return {
           dialog: false,
            icons: {
-                mdiPencil
+                mdiPencilCircle
             },
             title: ''
       }
