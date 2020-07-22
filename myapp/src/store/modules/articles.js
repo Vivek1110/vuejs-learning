@@ -1,9 +1,8 @@
-import {data} from '../data';
-
 const state = {
-    articles: data,
+    articles: [],
     loading: false,
-    sources: []
+    sources: [],
+    search: ''
 };
 
 const getters = {
@@ -12,6 +11,9 @@ const getters = {
     },
     'loading': state => {
         return state.loading
+    },
+    'search': state => {
+        return state.search
     }
 };
 
@@ -27,12 +29,18 @@ const mutations = {
     },
     'SET_SOURCE': (state, payload) => {
         state.sources = payload
+    },
+    'SET_SEARCH': (state, payload) => {
+        state.search = payload
     }
 };
 
 const actions = {
    'updateTitleAction': ({ commit }, payload) => {
         commit('updateTitle', payload)
+   },
+   updateSearch({commit}, payload) {
+       commit('SET_SEARCH', payload)
    }
 };
 

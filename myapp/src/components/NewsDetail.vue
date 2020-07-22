@@ -1,8 +1,6 @@
 <template>
     <v-container>
-        <v-row :align="justify"
-                :justify="justify"
-                class="grey lighten-5">
+        <v-row class="grey lighten-5">
             <v-col cols='12'>
               <v-img
                 class="white--text align-end"
@@ -15,14 +13,11 @@
             </v-col>
              
         </v-row>
-        <v-row :align="alignment"
-                :justify="justify"
-                class="grey lighten-5">
+        <v-row class="grey lighten-5">
             <v-col cols='12'>
                 <h1>{{articles[index]['title']}}</h1>
                    <v-divider
                         class="mx-4"
-                        :inset="inset"
                     ></v-divider>
                 <h3 class="ml-4">{{articles[index]['description']}}</h3>
             </v-col>
@@ -48,7 +43,7 @@ export default {
     computed: {
          ...mapGetters({
             articles: 'articles'
-        }),
+        })
     }
 }
 </script>

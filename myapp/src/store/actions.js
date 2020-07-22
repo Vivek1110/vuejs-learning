@@ -3,9 +3,9 @@ import Vue from 'vue';
 export const loadData = ({commit}, payload) => {
     let url = ''
     if(payload==='') {
-        url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=099148be22804e849a0c6fe022b7cf5e'
+        url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=b569be5d348140b4a035f71ff2b40c45'
     } else {
-       url = `https://newsapi.org/v2/top-headlines?q=${payload}&apiKey=099148be22804e849a0c6fe022b7cf5e`
+       url = `https://newsapi.org/v2/top-headlines?q=${payload}&apiKey=b569be5d348140b4a035f71ff2b40c45`
     }
     commit('SET_LOADING', true);
     Vue.http.get(url)
@@ -17,5 +17,7 @@ export const loadData = ({commit}, payload) => {
             }
         }).catch(err => {
             console.log("this is the error", err);
+            alert(err.body.message);
+            commit('SET_LOADING', false);
         });
 };
