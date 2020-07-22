@@ -21,3 +21,22 @@ export const loadData = ({commit}, payload) => {
             commit('SET_LOADING', false);
         });
 };
+
+export const loadSources = ({commit}) => {
+    commit('SET_LOADING', true);
+    Vue.http.get('https://newsapi.org/v2/sources?apiKey=099148be22804e849a0c6fe022b7cf5e')
+        .then(response => response.json())
+        .then(data => {
+            console.log('this is data', data);
+            let sources = data.sources.map(source => source.name)
+            console.log('this is data', sources);
+            if (data) {
+                commit('SET_SOURCE', sources);
+                commit('SET_LOADING', false);
+            }
+        }).catch(err => {
+            console.log("this is the error", err);
+            alert(err.body.message);
+            commit('SET_LOADING', false);
+        });
+};

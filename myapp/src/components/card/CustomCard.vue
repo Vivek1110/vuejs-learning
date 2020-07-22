@@ -2,7 +2,7 @@
        <v-card
                 width="auto"
                 height="auto"
-                min-height="00"
+                min-height="400"
                 class="ma-3"
                 hover
                 outlined
@@ -13,13 +13,16 @@
                   <v-list-item-content>
                     <v-img
                         class="white--text align-end"
-                        contain
+                        cover
+                        width="100%"
+                        height="300px"
                         v-bind:src="article['urlToImage'] != null ? article['urlToImage'] : dummyImg"
                         >
                         </v-img>
                     <v-list-item-subtitle class="my-2">{{article['publishedAt'].substring(0,10)}}</v-list-item-subtitle>
-                    <v-list-item-title class="text-overline mb-1 text-wrap font-weight-black">{{article['title']}}</v-list-item-title>
-                      <v-read-more-box max-height="10">
+                    <v-read-more-box max-height="40">
+                    <v-list-item-title  class="text-overline mb-1 text-wrap font-weight-black">{{article['title']}}</v-list-item-title>
+                      
                          <button slot="readMore" style="font-size: 12px; float: right; padding: 5px; background-color: teal; color: white; border-radius:5px; margin:11px">Show more..</button>
                          <v-card-text class="text-wrap">{{article['description']}}
                          </v-card-text>

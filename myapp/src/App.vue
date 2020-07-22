@@ -19,11 +19,13 @@ export default {
   },
   methods: {
     ...mapActions({
-      fetchData: 'loadData'
+      fetchData: 'loadData',
+      fetchSources: 'loadSources'
     })
   },
   created: function() {
     this.fetchData('');
+    this.fetchSources();
   },
 
   data: () => ({
