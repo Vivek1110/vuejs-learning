@@ -1,6 +1,6 @@
 <template >
   <v-container>
- 
+    <app-snackbar :isVisible='showSnack'/>
     <v-row>
       <app-top-panel />
     </v-row>
@@ -23,6 +23,7 @@
 import CustomCard from './card/CustomCard'
 import TopPanel from './header/TopPanel'
 import Progress from './utils/Progress'
+import SnackBar from './utils/Snackbar'
 import { mapGetters } from 'vuex';
   export default {
     data() {
@@ -32,12 +33,14 @@ import { mapGetters } from 'vuex';
     components: {
         'app-custom-card': CustomCard,
         'app-top-panel': TopPanel,
-        'app-progress': Progress
+        'app-progress': Progress,
+        'app-snackbar': SnackBar
     },
     computed: {
         ...mapGetters({
             articles: 'articles',
-            loading: 'loading'
+            loading: 'loading',
+            showSnack: 'showSnack'
         })
     }
   }

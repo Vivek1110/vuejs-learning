@@ -1,9 +1,10 @@
 const state = {
-    articles: [],
+    articles: [], //
     loading: false,
     sources: [],
     filterSource:[],
-    search: ''
+    search: '',
+    showSnack: false
 };
 
 const getters = {
@@ -21,6 +22,9 @@ const getters = {
     },
     'filterSource': state => {
         return state.filterSource
+    },
+    'showSnack': state => {
+        return state.showSnack
     }
 };
 
@@ -37,6 +41,7 @@ const mutations = {
             })
             state.articles = filteredArticle;
         }
+        console.log('------', state)
     },
     'SET_LOADING': (state, payload) => {
         state.loading = payload
@@ -53,7 +58,10 @@ const mutations = {
             payload.includes(article.source.name);
         })
         state.articles = filteredArticle;
-    }
+    },
+    'SET_SNACKBAR': (state, payload) => {
+        state.showSnack = payload;
+    }   
 };
 
 const actions = {

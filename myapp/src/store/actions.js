@@ -1,6 +1,11 @@
 import Vue from 'vue';
 
-export const loadData = ({commit}, payload) => {
+export const loadData = ({commit, state}, payload) => {
+    if(state.articles.filterSource != 0) {
+        commit('SET_SNACKBAR', true)
+    } else {
+        commit('SET_SNACKBAR', false)
+    }
     let url = ''
     if(payload==='') {
         url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=b569be5d348140b4a035f71ff2b40c45'

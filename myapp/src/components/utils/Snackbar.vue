@@ -1,6 +1,6 @@
 <template>
     <v-snackbar
-        v-model="snackbar"
+        v-model="isVisible"
         :multi-line="multiLine"
         top
         >
@@ -11,7 +11,7 @@
             color="red"
             text
             v-bind="attrs"
-            @click="snackbar = false"
+            @click="isVisible = false"
             >
             Close
             </v-btn>
@@ -20,18 +20,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
 export default {
-    data: function() {
-        return {
-            snackbar
-        }
-    },
-    computed: {
-    ...mapGetters({
-        sources: 'sources',
-        search: 'search'
-        })
-    }
+   props: ['isVisible']
 }
 </script>
