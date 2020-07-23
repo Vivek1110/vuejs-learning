@@ -71,6 +71,9 @@ const mutations = {
         let visitedArticle = state.articles[payload];
         visitedArticle.visitedTime = moment().format('MM/DD/YYYY hh:mm')
         state.history.unshift(state.articles[payload]);
+    }, 
+    'CLEAR_HISTORY': (state) => {
+        state.history = []
     }
 };
 
@@ -89,6 +92,9 @@ const actions = {
    },
    setSnackBar({commit}, payload) {
        commit('SET_SNACKBAR', payload)
+   },
+   clearHistory({commit}) {
+       commit('CLEAR_HISTORY')
    }
 };
 

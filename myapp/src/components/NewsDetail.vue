@@ -11,7 +11,7 @@
                 >
                 
                 </v-img>
-                <div class="subheading">Author: {{articles[index]['author']}}</div>
+                <div class="subheading">Author: {{articles[index]['author'] != null ? articles[index]['author'] : 'N/A'}}</div>
             </v-col>
              
         </v-row>

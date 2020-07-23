@@ -41,6 +41,7 @@
           </v-list-item>
             <v-card-actions>
           <v-btn color="blue darken-1" text @click="dialog = false">Close</v-btn>
+          <v-btn color="blue darken-1" text @click="clearHistory">Clear History</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -62,6 +63,11 @@ import { mdiHistory } from '@mdi/js'
         ...mapGetters({
             history: 'history'
         })
+    },
+    methods: {
+      ...mapActions({
+        clearHistory: 'clearHistory'
+      })
     }
   }
 </script>
