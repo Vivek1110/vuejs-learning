@@ -1,6 +1,6 @@
 <template>
     <v-snackbar
-        v-model="isVisible"
+        v-model="show"
         top
         >
         Note: Filter is enabled, diasable it to see all headlines
@@ -10,7 +10,7 @@
             color="red"
             text
             v-bind="attrs"
-            @click="isVisible = false"
+            @click="show = false"
             >
             Close
             </v-btn>
@@ -19,7 +19,27 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
-   props: ['isVisible']
+   props: ['isVisible'],
+   data() {
+       return {
+       }
+   },
+   computed: {
+       show: {
+           get() {
+               return this.isVisible
+           },
+           set(val) {
+               this.setSnackBar(false)
+           }
+       }
+   },
+   methods: {
+       ...mapActions({
+           setSnackBar: 'setSnackBar'
+       })
+   }
 }
 </script>

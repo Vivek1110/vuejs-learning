@@ -86,6 +86,9 @@ const actions = {
    },
    addHistory({commit}, payload) {
        commit('ADD_HISTORY', payload)
+   },
+   setSnackBar({commit}, payload) {
+       commit('SET_SNACKBAR', payload)
    }
 };
 

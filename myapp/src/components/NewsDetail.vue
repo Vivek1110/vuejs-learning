@@ -27,7 +27,7 @@
         </v-row>
         <v-row></v-row>
         <v-row>
-            <p>{{articles[index]['content'].slice(0, -15)}} <a :href="articles[index]['url']" target="_blank">continue reading..</a></p>
+            <p>{{articles[index]['content'] != null ? articles[index]['content'].slice(0, -15) : ''}} <a :href="articles[index]['url']" target="_blank">continue reading..</a></p>
         </v-row>
     </v-container>
 

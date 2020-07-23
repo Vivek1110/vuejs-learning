@@ -26,7 +26,6 @@ import HistoryDialog from '../dialogs/HistoryDialog'
 export default {
      data() {
       return {
-        snackbar:true,
         searchTxt: this.$store.getters.search,
         icons: {
           mdiSearchWeb

@@ -53,10 +53,10 @@ import { mdiFilter } from '@mdi/js'
         fetchData: 'loadData',
       }),
       onFilter: function() {
+        this.fliterArticle(this.selected)
         if(this.selected.length == 0) {
           this.fetchData(this.search)
         }
-        this.fliterArticle(this.selected)
         this.dialog= false;
       }
     }

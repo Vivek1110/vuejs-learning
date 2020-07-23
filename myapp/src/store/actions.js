@@ -1,7 +1,6 @@
 import Vue from 'vue';
 
 export const loadData = ({commit, state}, payload) => {
-    console.log(state.articles.filterSource);
     if(state.articles.filterSource != 0) {
         commit('SET_SNACKBAR', true)
     } else {
