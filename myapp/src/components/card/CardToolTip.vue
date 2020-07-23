@@ -2,10 +2,10 @@
     <div>
       
        <v-row>
-            <v-col cols='12'>
+            <v-col cols="12">
                 <v-toolbar height="20" flat>
                 <v-spacer></v-spacer>
-                 <Dialog :index='index'/>
+                 <app-update-title-dialog :index='index'/>
                 <v-btn @click="moveToDetails" icon>
                     <v-icon>{{ icons.mdiArrowRightBoldCircle }}</v-icon>
                 </v-btn>
@@ -19,11 +19,11 @@
 import {
     mdiArrowRightBoldCircle,
   } from '@mdi/js'
-  import Dialog from './Dialog'
+  import TitleUpdateDialog from '../dialogs/TitleUpdateDialog'
 export default {
     props:['index'],
     components: {
-        Dialog
+        'app-update-title-dialog': TitleUpdateDialog
     },
     data() {
         return {

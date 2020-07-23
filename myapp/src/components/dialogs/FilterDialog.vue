@@ -15,7 +15,7 @@
       <v-card>
         <v-card-title>Select Country</v-card-title>
         <v-divider></v-divider>
-        <v-card-text style="height: 500px;">
+        <v-card-text class="card-height">
             <v-checkbox v-for="(source, index) in sources" :key="index" v-model="selected" :label="source" :value="source"></v-checkbox>
         </v-card-text>
         <v-divider></v-divider>
@@ -58,3 +58,9 @@ import { mapGetters, mapActions } from 'vuex';
     }
   }
 </script>
+
+<style scoped>
+.card-height {
+  height: "500px";
+}
+</style>

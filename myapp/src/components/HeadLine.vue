@@ -2,24 +2,16 @@
   <v-container>
  
     <v-row>
-      <TopPanel />
+      <app-top-panel />
     </v-row>
     <v-row>
-      <v-col cols='12'>
+      <v-col cols="12">
           <v-layout v-if='loading'>
-            <div style="position: absolute; left: 50%; top: 50%">
-                <v-progress-circular
-                style="position: absolute"
-                :size="70"
-                :width="7"
-                color="purple"
-                indeterminate
-              ></v-progress-circular>
-            </div>
+                <app-progress />
         </v-layout>
         <v-layout row wrap v-else>
           <v-flex xs12 sm6 lg3 v-for="(article, index) in articles" :key='index'>
-              <CustomCard :article='article' :index='index'/>
+              <app-custom-card :article='article' :index='index'/>
           </v-flex>
         </v-layout>
       </v-col>
@@ -29,7 +21,8 @@
 
 <script>
 import CustomCard from './card/CustomCard'
-import TopPanel from './TopPanel'
+import TopPanel from './header/TopPanel'
+import Progress from './utils/Progress'
 import { mapGetters } from 'vuex';
   export default {
     data() {
@@ -37,8 +30,9 @@ import { mapGetters } from 'vuex';
       }
     },
     components: {
-        CustomCard,
-        TopPanel
+        'app-custom-card': CustomCard,
+        'app-top-panel': TopPanel,
+        'app-progress': Progress
     },
     computed: {
         ...mapGetters({

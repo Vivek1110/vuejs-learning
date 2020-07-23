@@ -18,11 +18,14 @@ const getters = {
     },
     'sources': state => {
         return state.sources
+    },
+    'filterSource': state => {
+        return state.filterSource
     }
 };
 
 const mutations = {
-    'updateTitle': (state, payload) => {
+    'SET_TITLE': (state, payload) => {
         state.articles[payload.index]['title'] = payload.title
     },
     'SET_ARTICLE': (state, payload) => {
@@ -54,8 +57,8 @@ const mutations = {
 };
 
 const actions = {
-   'updateTitleAction': ({ commit }, payload) => {
-        commit('updateTitle', payload)
+   updateTitleAction ({ commit }, payload) {
+        commit('SET_TITLE', payload)
    },
    updateSearch({commit}, payload) {
        commit('SET_SEARCH', payload)

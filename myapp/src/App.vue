@@ -1,6 +1,6 @@
 <template>
-  <v-app>
-    <Header />
+  <v-app dark>
+    <app-header />
     <v-main>
       <router-view></router-view>
     </v-main>
@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import Header from './components/Header'
+import Header from './components/header/Header'
 import {mapActions} from 'vuex';
 
 export default {
   name: 'App',
 
   components: {
-    Header
+    'app-header': Header
   },
   methods: {
     ...mapActions({
@@ -26,10 +26,6 @@ export default {
   created: function() {
     this.fetchData('');
     this.fetchSources();
-  },
-
-  data: () => ({
-    //
-  }),
+  }
 };
 </script>
