@@ -7,7 +7,7 @@
                 hover
                 outlined
               >
-                <app-card-tooltip :index='index'/>
+                <CardToolTip :index='index'/>
                 
                 <v-list-item three-line  class="content">
                   <v-list-item-content>
@@ -23,7 +23,7 @@
                     <v-read-more-box max-height="40">
                     <v-list-item-title  class="text-overline mb-1 text-wrap font-weight-black">{{article['title']}}</v-list-item-title>
                       
-                         <button slot="readMore" style="font-size: 12px; float: right; padding: 5px; background-color: teal; color: white; border-radius:5px; margin:11px">Show more..</button>
+                         <button slot="readMore" class="read-more">Show more..</button>
                          <v-card-text class="text-wrap">{{article['description']}}
                          </v-card-text>
                       </v-read-more-box>
@@ -43,19 +43,21 @@ export default {
         }
     },
     components: {
-       'app-card-tooltip': CardToolTip
+        CardToolTip
     }
 }
 </script>
 
 <style scoped>
-.hacker{
-  width: 200px;
-  float: right;
-  margin-left: 15px;
+
+.read-more {
+  font-size: 12px; 
+  float: right; 
+  padding: 5px; 
+  background-color: #272727; 
+  color: white; 
+  border-radius:5px; 
+  margin:11px
 }
 
-.readMore .readControl {
-  float: left !important;
-}
 </style>

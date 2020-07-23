@@ -1,54 +1,53 @@
 <template>
-      <div style="width:100%">
-        <v-row>
-          <v-col cols="12">
-          <!-- <v-alert dense dismissible type="info">
-            Note: Filter is enabled, diasable it to see all headlines
-          </v-alert> -->
-             
-          </v-col>
-        </v-row>
-      <v-row>
-       <v-col cols='8'>
-          <v-text-field
+      <v-row align="center" style="height:60px">
+       <v-col cols="6">
+         <v-text-field
             label="Title"
             class="mx-4"
             v-model.lazy='searchTxt'
+            :append-icon="icons.mdiSearchWeb"
             outlined
           ></v-text-field>
-         
        </v-col>
-       <v-col class="cols-4">
-         <app-filter-dialog />
+        <v-col cols="6" class="mb-auto">
+          <div>
+            <app-filter-dialog />
+            <app-history-dialog />
+         </div>
        </v-col>
     </v-row>
-    </div>
 </template>
 
 <script>
+import { mdiSearchWeb } from '@mdi/js'
 import {  mapActions } from 'vuex';
 import FilterDialog from '../dialogs/FilterDialog'
+import HistoryDialog from '../dialogs/HistoryDialog'
 export default {
      data() {
       return {
         snackbar:true,
-        searchTxt: this.$store.getters.search
+        searchTxt: this.$store.getters.search,
+        icons: {
+          mdiSearchWeb
+        }
       }
     },
     components: {
-        'app-filter-dialog':FilterDialog
+        'app-filter-dialog':FilterDialog,
+        'app-history-dialog': HistoryDialog
     },
     watch: {
         searchTxt: function(val) {
             this.setSearch(val)
             this.fetchSearchResults(val);
-        }
+        },
     },
     methods: {
       ...mapActions({
         fetchSearchResults: 'loadData',
         setSearch: 'updateSearch'
       })
-    }
+    },
 }
 </script>

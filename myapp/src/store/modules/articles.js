@@ -1,10 +1,13 @@
+
+import moment from 'moment';
 const state = {
     articles: [], //
     loading: false,
     sources: [],
     filterSource:[],
     search: '',
-    showSnack: false
+    showSnack: false,
+    history: []
 };
 
 const getters = {
@@ -25,6 +28,9 @@ const getters = {
     },
     'showSnack': state => {
         return state.showSnack
+    },
+    'history': state => {
+        return state.history
     }
 };
 
@@ -37,11 +43,10 @@ const mutations = {
             state.articles = payload
         } else {
             let filteredArticle = payload.filter(article => {
-                payload.includes(article.source.name);
+                return state.filterSource.includes(article.source.name);
             })
             state.articles = filteredArticle;
         }
-        console.log('------', state)
     },
     'SET_LOADING': (state, payload) => {
         state.loading = payload
@@ -55,13 +60,18 @@ const mutations = {
     'FILTER_ARTICLE': (state, payload) => {
         state.filterSource = payload;
         let filteredArticle = state.articles.filter(article => {
-            payload.includes(article.source.name);
+            return payload.includes(article.source.name);
         })
         state.articles = filteredArticle;
     },
     'SET_SNACKBAR': (state, payload) => {
         state.showSnack = payload;
-    }   
+    }, 
+    'ADD_HISTORY': (state, payload) => {
+        let visitedArticle = state.articles[payload];
+        visitedArticle.visitedTime = moment().format('MM/DD/YYYY hh:mm')
+        state.history.unshift(state.articles[payload]);
+    }
 };
 
 const actions = {
@@ -73,6 +83,9 @@ const actions = {
    },
    fliterArticle({commit}, payload) {
        commit('FILTER_ARTICLE', payload)
+   },
+   addHistory({commit}, payload) {
+       commit('ADD_HISTORY', payload)
    }
 };
 

@@ -1,7 +1,6 @@
 <template>
     <v-snackbar
         v-model="isVisible"
-        :multi-line="multiLine"
         top
         >
         Note: Filter is enabled, diasable it to see all headlines

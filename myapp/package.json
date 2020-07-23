@@ -11,6 +11,7 @@
     "@mdi/font": "^3.6.95",
     "@mdi/js": "^5.3.45",
     "core-js": "^3.6.5",
+    "moment": "^2.27.0",
     "roboto-fontface": "*",
     "v-read-more-box": "^1.2.2",
     "vue": "^2.6.11",

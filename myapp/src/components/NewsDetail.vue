@@ -9,7 +9,9 @@
                 contain
                 v-bind:src="articles[index]['urlToImage'] != null ? articles[index]['urlToImage'] : ''"
                 >
+                
                 </v-img>
+                <div class="subheading">Author: {{articles[index]['author']}}</div>
             </v-col>
              
         </v-row>
@@ -25,7 +27,7 @@
         </v-row>
         <v-row></v-row>
         <v-row>
-            <p>{{articles[index]['content']}}</p>
+            <p>{{articles[index]['content'].slice(0, -15)}} <a :href="articles[index]['url']" target="_blank">continue reading..</a></p>
         </v-row>
     </v-container>
 
@@ -37,6 +39,7 @@ import { mapGetters } from 'vuex';
 export default {
     data() {
         return {
+              dummyImg: 'https://www.associacaoricoy.com.br/wp-content/plugins/superstorefinder-wp/images/NoImage.png',
             index: this.$route.params.id
         }
     },

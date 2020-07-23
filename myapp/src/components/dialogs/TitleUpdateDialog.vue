@@ -14,7 +14,10 @@
             <v-text-field
             label="Title"
             class="mx-4"
+            counter
+            maxlength="50"
             v-model="title"
+            :rules="rules"
             outlined
           ></v-text-field>
         </div>
@@ -39,7 +42,8 @@ import {mapActions} from 'vuex';
            icons: {
                 mdiPencilCircle
             },
-            title: ''
+            title: '',
+            rules: [v => v.length <= 49 || 'Cannot enter more than 50 chars'],
       }
     },
     methods: {

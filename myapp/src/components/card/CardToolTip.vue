@@ -20,6 +20,7 @@ import {
     mdiArrowRightBoldCircle,
   } from '@mdi/js'
   import TitleUpdateDialog from '../dialogs/TitleUpdateDialog'
+  import {mapActions} from 'vuex'
 export default {
     props:['index'],
     components: {
@@ -33,7 +34,11 @@ export default {
         }
     },
     methods: {
+        ...mapActions({
+            addHistory: 'addHistory',
+        }),
         moveToDetails: function(){
+            this.addHistory(this.index);
             this.$router.push(`details/${this.index}`)
         }
     }
