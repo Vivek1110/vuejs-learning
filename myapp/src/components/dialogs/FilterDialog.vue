@@ -17,7 +17,14 @@
         <v-card-title>Select News Source</v-card-title>
         <v-divider></v-divider>
         <v-card-text class="card-height">
-            <v-checkbox class="ma-0 pa-0" v-for="(source, index) in sources" :key="index" v-model="selected" :label="source" :value="source"></v-checkbox>
+            <v-checkbox
+            class="ma-0 pa-0"
+            v-for="(source, index) in sources"
+            :key="index" v-model="selected"
+            :label="source"
+            :value="source">
+
+            </v-checkbox>
         </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
@@ -30,37 +37,38 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { mdiFilter } from '@mdi/js'
-  export default {
-    data () {
-      return {
-        selected: this.$store.getters.filterSource,
-        dialog: false,
-        icons: {
-          mdiFilter
-        }
+import { mdiFilter } from '@mdi/js';
+
+export default {
+  data() {
+    return {
+      selected: this.$store.getters.filterSource,
+      dialog: false,
+      icons: {
+        mdiFilter,
+      },
+    };
+  },
+  computed: {
+    ...mapGetters({
+      sources: 'sources',
+      search: 'search',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fliterArticle: 'fliterArticle',
+      fetchData: 'loadData',
+    }),
+    onFilter() {
+      this.fliterArticle(this.selected);
+      if (this.selected.length === 0) {
+        this.fetchData(this.search);
       }
+      this.dialog = false;
     },
-      computed: {
-        ...mapGetters({
-            sources: 'sources',
-            search: 'search',
-        })
-    },
-    methods: {
-      ...mapActions({
-        fliterArticle: 'fliterArticle',
-        fetchData: 'loadData',
-      }),
-      onFilter: function() {
-        this.fliterArticle(this.selected)
-        if(this.selected.length == 0) {
-          this.fetchData(this.search)
-        }
-        this.dialog= false;
-      }
-    }
-  }
+  },
+};
 </script>
 
 <style scoped>

@@ -20,28 +20,29 @@
 </template>
 
 <script>
-import CustomCard from './card/CustomCard'
-import TopPanel from './header/TopPanel'
-import Progress from './utils/Progress'
-import SnackBar from './utils/Snackbar'
 import { mapGetters } from 'vuex';
-  export default {
-    data() {
-      return {
-      }
-    },
-    components: {
-        'app-custom-card': CustomCard,
-        'app-top-panel': TopPanel,
-        'app-progress': Progress,
-        'app-snackbar': SnackBar
-    },
-    computed: {
-        ...mapGetters({
-            articles: 'articles',
-            loading: 'loading',
-            showSnack: 'showSnack'
-        })
-    }
-  }
+import CustomCard from './card/CustomCard.vue';
+import TopPanel from './header/TopPanel.vue';
+import Progress from './utils/Progress.vue';
+import SnackBar from './utils/Snackbar.vue';
+
+export default {
+  data() {
+    return {
+    };
+  },
+  components: {
+    'app-custom-card': CustomCard,
+    'app-top-panel': TopPanel,
+    'app-progress': Progress,
+    'app-snackbar': SnackBar,
+  },
+  computed: {
+    ...mapGetters({
+      articles: 'articles',
+      loading: 'loading',
+      showSnack: 'showSnack',
+    }),
+  },
+};
 </script>

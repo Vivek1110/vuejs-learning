@@ -8,24 +8,24 @@
 </template>
 
 <script>
-import Header from './components/header/Header'
-import {mapActions} from 'vuex';
+import { mapActions } from 'vuex';
+import Header from './components/header/Header.vue';
 
 export default {
   name: 'App',
 
   components: {
-    'app-header': Header
+    'app-header': Header,
   },
   methods: {
     ...mapActions({
       fetchData: 'loadData',
-      fetchSources: 'loadSources'
-    })
+      fetchSources: 'loadSources',
+    }),
   },
-  created: function() {
+  created() {
     this.fetchData('');
     this.fetchSources();
-  }
+  },
 };
 </script>

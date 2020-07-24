@@ -36,7 +36,9 @@
           <v-list-item-content>
             <div class="overline mb-4">Oops!!</div>
             <v-list-item-title class="headline mb-1">No History Available.</v-list-item-title>
-            <v-list-item-subtitle>Please browse through news to view history here.</v-list-item-subtitle>
+            <v-list-item-subtitle>
+              Please browse through news to view history here.
+              </v-list-item-subtitle>
           </v-list-item-content>
           </v-list-item>
             <v-card-actions>
@@ -49,27 +51,28 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import { mdiHistory } from '@mdi/js'
-  export default {
-    data () {
-      return {
-        dialog: false,
-        icons: {
-          mdiHistory
-        }
-      }
-    },
-      computed: {
-        ...mapGetters({
-            history: 'history'
-        })
-    },
-    methods: {
-      ...mapActions({
-        clearHistory: 'clearHistory'
-      })
-    }
-  }
+import { mdiHistory } from '@mdi/js';
+
+export default {
+  data() {
+    return {
+      dialog: false,
+      icons: {
+        mdiHistory,
+      },
+    };
+  },
+  computed: {
+    ...mapGetters({
+      history: 'history',
+    }),
+  },
+  methods: {
+    ...mapActions({
+      clearHistory: 'clearHistory',
+    }),
+  },
+};
 </script>
 
 <style scoped>

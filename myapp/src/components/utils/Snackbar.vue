@@ -19,27 +19,28 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import { mapActions } from 'vuex';
+
 export default {
-   props: ['isVisible'],
-   data() {
-       return {
-       }
-   },
-   computed: {
-       show: {
-           get() {
-               return this.isVisible
-           },
-           set(val) {
-               this.setSnackBar(false)
-           }
-       }
-   },
-   methods: {
-       ...mapActions({
-           setSnackBar: 'setSnackBar'
-       })
-   }
-}
+  props: ['isVisible'],
+  data() {
+    return {
+    };
+  },
+  computed: {
+    show: {
+      get() {
+        return this.isVisible;
+      },
+      set() {
+        this.setSnackBar(false);
+      },
+    },
+  },
+  methods: {
+    ...mapActions({
+      setSnackBar: 'setSnackBar',
+    }),
+  },
+};
 </script>

@@ -19,34 +19,35 @@
 </template>
 
 <script>
-import { mdiSearchWeb } from '@mdi/js'
-import {  mapActions } from 'vuex';
-import FilterDialog from '../dialogs/FilterDialog'
-import HistoryDialog from '../dialogs/HistoryDialog'
+import { mdiSearchWeb } from '@mdi/js';
+import { mapActions } from 'vuex';
+import FilterDialog from '../dialogs/FilterDialog.vue';
+import HistoryDialog from '../dialogs/HistoryDialog.vue';
+
 export default {
-     data() {
-      return {
-        searchTxt: this.$store.getters.search,
-        icons: {
-          mdiSearchWeb
-        }
-      }
+  data() {
+    return {
+      searchTxt: this.$store.getters.search,
+      icons: {
+        mdiSearchWeb,
+      },
+    };
+  },
+  components: {
+    'app-filter-dialog': FilterDialog,
+    'app-history-dialog': HistoryDialog,
+  },
+  watch: {
+    searchTxt(val) {
+      this.setSearch(val);
+      this.fetchSearchResults(val);
     },
-    components: {
-        'app-filter-dialog':FilterDialog,
-        'app-history-dialog': HistoryDialog
-    },
-    watch: {
-        searchTxt: function(val) {
-            this.setSearch(val)
-            this.fetchSearchResults(val);
-        },
-    },
-    methods: {
-      ...mapActions({
-        fetchSearchResults: 'loadData',
-        setSearch: 'updateSearch'
-      })
-    },
-}
+  },
+  methods: {
+    ...mapActions({
+      fetchSearchResults: 'loadData',
+      setSearch: 'updateSearch',
+    }),
+  },
+};
 </script>

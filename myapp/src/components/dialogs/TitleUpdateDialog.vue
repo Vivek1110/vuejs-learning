@@ -3,7 +3,7 @@
     <v-dialog v-model="dialog" persistent max-width="290">
       <template v-slot:activator="{ on, attrs }">
          <v-btn  v-bind="attrs"
-                v-on="on" 
+                v-on="on"
                 icon>
             <v-icon>{{ icons.mdiPencilCircle }}</v-icon>
         </v-btn>
@@ -32,28 +32,29 @@
 </template>
 
 <script>
-import { mdiPencilCircle } from '@mdi/js'
-import {mapActions} from 'vuex';
-  export default {
-    props: ['index'],
-    data () {
-      return {
-          dialog: false,
-           icons: {
-                mdiPencilCircle
-            },
-            title: '',
-            rules: [v => v.length <= 49 || 'Cannot enter more than 50 chars'],
-      }
+import { mdiPencilCircle } from '@mdi/js';
+import { mapActions } from 'vuex';
+
+export default {
+  props: ['index'],
+  data() {
+    return {
+      dialog: false,
+      icons: {
+        mdiPencilCircle,
+      },
+      title: '',
+      rules: [(v) => v.length <= 49 || 'Cannot enter more than 50 chars'],
+    };
+  },
+  methods: {
+    ...mapActions({
+      updateTitleAction: 'updateTitleAction',
+    }),
+    titleUpdate() {
+      this.updateTitleAction({ index: this.index, title: this.title });
+      this.dialog = false;
     },
-    methods: {
-        ...mapActions({
-            updateTitleAction : 'updateTitleAction'
-        }),
-        titleUpdate: function() {
-            this.updateTitleAction({index: this.index, title: this.title});
-            this.dialog = false;
-        }
-    }
-  }
+  },
+};
 </script>

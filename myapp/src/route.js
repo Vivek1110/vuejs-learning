@@ -1,8 +1,9 @@
+import NewsDetail from './components/NewsDetail.vue';
+import HeadLine from './components/HeadLine.vue';
 
-import NewsDetail from './components/NewsDetail'
-import HeadLine from './components/HeadLine'
+const routes = [
+  { path: '/details/:id', component: NewsDetail },
+  { path: '/', component: HeadLine },
+];
 
-export const routes = [
-    { path: '/details/:id', component: NewsDetail },
-    { path: '/', component: HeadLine }
-]
+export default routes;
