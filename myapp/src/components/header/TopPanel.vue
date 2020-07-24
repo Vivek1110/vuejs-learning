@@ -2,7 +2,7 @@
       <v-row align="center" style="height:60px">
        <v-col cols="6">
          <v-text-field
-            label="Title"
+            label="Type to search.."
             class="mx-4"
             v-model='searchTxt'
             :append-icon="icons.mdiSearchWeb"
