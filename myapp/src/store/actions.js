@@ -1,5 +1,7 @@
 import Vue from 'vue';
 
+const API_URL = 'https://newsapi.org/v2';
+
 export const loadData = ({ commit, state }, payload) => {
   if (state.articles.filterSource.length !== 0) {
     commit('SET_SNACKBAR', true);
@@ -8,9 +10,9 @@ export const loadData = ({ commit, state }, payload) => {
   }
   let url = '';
   if (payload === '') {
-    url = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=b569be5d348140b4a035f71ff2b40c45';
+    url = `${API_URL}/top-headlines?country=us&apiKey=099148be22804e849a0c6fe022b7cf5e`;
   } else {
-    url = `https://newsapi.org/v2/top-headlines?q=${payload}&apiKey=b569be5d348140b4a035f71ff2b40c45`;
+    url = `${API_URL}/top-headlines?q=${payload}&apiKey=099148be22804e849a0c6fe022b7cf5e`;
   }
   commit('SET_LOADING', true);
   Vue.http.get(url)
@@ -28,7 +30,7 @@ export const loadData = ({ commit, state }, payload) => {
 
 export const loadSources = ({ commit }) => {
   commit('SET_LOADING', true);
-  Vue.http.get('https://newsapi.org/v2/sources?apiKey=099148be22804e849a0c6fe022b7cf5e')
+  Vue.http.get(`${API_URL}/sources?apiKey=099148be22804e849a0c6fe022b7cf5e`)
     .then((response) => response.json())
     .then((data) => {
       const sources = data.sources.map((source) => source.name);
