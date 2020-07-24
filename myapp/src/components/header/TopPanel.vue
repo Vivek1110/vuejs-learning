@@ -4,7 +4,7 @@
          <v-text-field
             label="Title"
             class="mx-4"
-            v-model.lazy='searchTxt'
+            v-model='searchTxt'
             :append-icon="icons.mdiSearchWeb"
             outlined
           ></v-text-field>
