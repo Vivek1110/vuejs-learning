@@ -43,7 +43,7 @@ export default {
         }
     },
     components: {
-        CardToolTip
+        'app-card-tooltip': CardToolTip
     }
 }
 </script>
