@@ -7,7 +7,7 @@
                 hover
                 outlined
               >
-                <CardToolTip :index='index'/>
+                <app-card-tooltip :index='index'/>
                 
                 <v-list-item three-line  class="content">
                   <v-list-item-content>
